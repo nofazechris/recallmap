@@ -26,6 +26,7 @@ if (e.ARC_CHAIN_ID && e.ARC_RPC_URL && e.ARC_CREDENTIAL_CONTRACT_ADDRESS) {
   ok(`Arc contract ${e.ARC_CREDENTIAL_CONTRACT_ADDRESS} on chain ${e.ARC_CHAIN_ID}`);
   has('ARC_ISSUER_PRIVATE_KEY') ? ok("ARC_ISSUER_PRIVATE_KEY (keep that wallet's balance small)") : warn('ARC_ISSUER_PRIVATE_KEY missing: people can verify existing credentials but not issue new ones.');
 } else warn('Arc not fully configured: credentials are off.');
+has('SENTRY_DSN') ? ok('SENTRY_DSN (error tracking)') : warn('No SENTRY_DSN: errors are only written to the server logs.');
 has('NEXT_PUBLIC_CONTACT_EMAIL') ? ok('NEXT_PUBLIC_CONTACT_EMAIL shown on Terms/Privacy') : warn('NEXT_PUBLIC_CONTACT_EMAIL is empty — your Terms/Privacy pages have no contact address.');
 
 console.log(bad ? `\n${bad} problem(s) to fix before deploying.` : '\nEnvironment looks ready for production.');

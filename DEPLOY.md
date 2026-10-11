@@ -57,5 +57,6 @@ Create a Resend account, verify your sending domain, create an API key, and set 
 ## Operating notes
 - **Costs:** AI is the only metered cost that scales with users (kits are rate limited to 10/hour/user). Arc credentials cost a fraction of a cent each and are capped by `ARC_MAX_ISSUANCES_PER_DAY`.
 - **Rotating secrets:** changing `AUTH_SECRET` signs everyone out (fine). The issuer key can be rotated on-chain by the contract owner (`setIssuer`).
-- **Content-Security-Policy** is not set yet (Next.js inline scripts need a nonce setup); the other security headers are on.
-- **Logs** are structured JSON with request IDs and never contain documents, answers or keys. Add an error tracker (Sentry) if you want alerting.
+- **Content-Security-Policy** (`src/proxy.ts`, nonce-based) ships in **report-only** mode: the browser logs violations but blocks nothing. After your first deploy, open the site in Chrome with DevTools → Console open, click around (landing, sign in, upload, study), and if you see no "violates the following Content Security Policy" messages, set `CSP_MODE=enforce` and redeploy. If anything ever breaks, `CSP_MODE=off` is the instant escape hatch.
+- **Error tracking:** set `SENTRY_DSN` (a free Sentry project is enough) and unexpected server errors and browser crashes are reported with only the message, route and request id — never user data. Without it, errors still go to the structured server logs.
+- **Logs** are structured JSON with request IDs and never contain documents, answers or keys.

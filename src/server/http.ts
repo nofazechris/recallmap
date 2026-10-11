@@ -5,6 +5,7 @@ import { auth } from '../auth';
 import { getDb, type Db } from './db';
 import { HttpError, unauthorized } from './lib/errors';
 import { errMessage, log } from './lib/log';
+import { reportError } from './lib/report';
 import { runJob, sweep } from './services/jobs';
 import './services/register';
 
@@ -60,6 +61,7 @@ export function errorResponse(e: unknown, requestId: string, path: string) {
     );
   }
   log.error('route_error', { requestId, path, message: errMessage(e) });
+  reportError(e, { requestId, route: path, source: 'server' });
   return NextResponse.json({ error: { code: 'internal', message: 'Something went wrong on our side. Please try again.', requestId } }, { status: 500, headers: { 'x-request-id': requestId } });
 }
 

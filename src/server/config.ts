@@ -34,6 +34,7 @@ const schema = z.object({
 
   // jobs
   CRON_SECRET: z.string().optional(),
+  SENTRY_DSN: z.string().optional(),
   RECALLMAP_ALLOW_DEV_ADAPTERS: bool.default(false),
 });
 

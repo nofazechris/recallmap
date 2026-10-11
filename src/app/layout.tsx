@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { Suspense } from 'react';
+import { connection } from 'next/server';
 import Providers from '../components/Providers';
 import '../styles/tokens.css';
 import '../styles/base.css';
@@ -14,7 +15,12 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: '#FBFBF8', width: 'device-width', initialScale: 1 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+/**
+ * Rendering is per-request so the Content-Security-Policy nonce (see proxy.ts) can be stamped onto Next.js's own scripts.
+ * Static pre-rendering can't carry a per-request nonce.
+ */
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  await connection();
   return (
     <html lang="en">
       <head>
