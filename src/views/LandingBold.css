@@ -1,0 +1,77 @@
+/* ═════════════ bolder gradient layer for the landing page ═════════════ */
+
+/* stronger aurora */
+.lp-aurora { height: 1100px; }
+.lp-aurora .blob { filter: blur(80px); opacity: 0.9; }
+.lp-aurora .b1 { background: radial-gradient(circle, #7db4e8 0%, rgba(125, 180, 232, 0) 68%); }
+.lp-aurora .b2 { background: radial-gradient(circle, #dfe69a 0%, rgba(223, 230, 154, 0) 66%); }
+.lp-aurora .b3 { background: radial-gradient(circle, rgba(190, 178, 246, 0.95) 0%, rgba(190, 178, 246, 0) 66%); }
+.lp-aurora::after { content: ''; position: absolute; left: 50%; top: 18%; width: 900px; height: 420px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(246, 217, 196, 0.7), transparent); filter: blur(60px); }
+
+
+.lp-hero h1 { text-shadow: none; }
+.lp-prove { padding: 0 2px; }
+
+/* hero visual: bigger halo + sheen */
+
+/* full-bleed section bands */
+.lp-sec.band { border-top: 0; }
+.lp-sec.band::before { content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: calc(50% - 50vw); width: 100vw; pointer-events: none; }
+.lp-sec.band::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(106, 166, 218, 0.45), rgba(225, 229, 172, 0.7), rgba(190, 178, 246, 0.45), transparent); }
+.band-sky::before { background: radial-gradient(900px 420px at 15% 0, rgba(138, 187, 230, 0.34), transparent 70%), radial-gradient(800px 420px at 90% 100%, rgba(190, 178, 246, 0.26), transparent 70%), linear-gradient(180deg, rgba(219, 227, 233, 0.35), rgba(251, 251, 248, 0)); }
+.band-lime::before { background: radial-gradient(800px 460px at 0 50%, rgba(225, 229, 172, 0.55), transparent 70%), radial-gradient(900px 480px at 100% 40%, rgba(138, 187, 230, 0.32), transparent 70%); }
+.band-mesh::before { background: radial-gradient(700px 400px at 10% 10%, rgba(190, 178, 246, 0.3), transparent 70%), radial-gradient(800px 420px at 90% 20%, rgba(138, 187, 230, 0.35), transparent 70%), radial-gradient(800px 460px at 50% 100%, rgba(225, 229, 172, 0.45), transparent 70%); }
+.band-blush::before { background: radial-gradient(800px 420px at 85% 0, rgba(246, 217, 196, 0.5), transparent 70%), radial-gradient(800px 420px at 5% 100%, rgba(190, 178, 246, 0.24), transparent 70%); }
+
+/* steps: filled gradient icons */
+
+/* product window: gradient halo */
+
+/* bento: richer tiles, gradient icons, hairline highlight */
+.lp-bento .tile { border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: 0 24px 44px -30px rgba(28, 58, 82, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+.lp-bento .tile > svg { background: var(--grad-primary); color: #fff; box-shadow: 0 10px 20px -10px rgba(87, 147, 206, 0.9); }
+.lp-bento .t-ai > svg { background: linear-gradient(135deg, #b9aef0, #8a7be0); box-shadow: 0 10px 20px -10px rgba(110, 94, 210, 0.8); }
+.lp-bento .t-srs > svg { background: linear-gradient(135deg, #d9df94, #aab35c); box-shadow: 0 10px 20px -10px rgba(140, 150, 60, 0.8); }
+
+.lp-bento .t-proof > svg { background: linear-gradient(135deg, #e1e5ac, #b5c05a); color: #232a0a; }
+.lp-bento .t-map { background: radial-gradient(circle at 92% 8%, rgba(125, 180, 232, 0.8), transparent 55%), radial-gradient(circle at 0 100%, rgba(225, 229, 172, 0.55), transparent 50%), linear-gradient(160deg, #fff, #e3edf5); }
+.lp-bento .t-ai { background: radial-gradient(circle at 0 100%, rgba(190, 178, 246, 0.9), transparent 62%), radial-gradient(circle at 100% 0, rgba(138, 187, 230, 0.4), transparent 50%), linear-gradient(160deg, #fff, #efecfc); }
+.lp-bento .t-srs { background: radial-gradient(circle at 100% 100%, rgba(223, 230, 154, 1), transparent 60%), radial-gradient(circle at 0 0, rgba(246, 217, 196, 0.5), transparent 50%), linear-gradient(160deg, #fff, #f3f5de); }
+
+.lp-bento .t-proof { background: radial-gradient(circle at 92% 0, rgba(106, 166, 218, 0.7), transparent 55%), radial-gradient(circle at 8% 100%, rgba(190, 178, 246, 0.35), transparent 55%), radial-gradient(circle at 50% 120%, rgba(225, 229, 172, 0.25), transparent 50%), var(--grad-dark); border-color: rgba(255, 255, 255, 0.08); box-shadow: 0 30px 56px -30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.14); }
+.lp-bento .mini-map i { background: var(--grad-primary); }
+.srs-row .hl { background: var(--grad-primary); border-color: transparent; color: var(--blue-ink); box-shadow: 0 8px 16px -8px rgba(87, 147, 206, 0.9); }
+.srs-row .hl small { color: rgba(6, 36, 59, 0.65); }
+
+/* community cards: tinted gradients */
+.lp-comm { border-color: rgba(255, 255, 255, 0.8); }
+.lp-comm:nth-child(1) { background: radial-gradient(circle at 100% 0, rgba(138, 187, 230, 0.5), transparent 60%), var(--grad-card); }
+.lp-comm:nth-child(2) { background: radial-gradient(circle at 100% 0, rgba(225, 229, 172, 0.8), transparent 60%), var(--grad-card); }
+.lp-comm:nth-child(3) { background: radial-gradient(circle at 100% 0, rgba(190, 178, 246, 0.55), transparent 60%), var(--grad-card); }
+
+/* verification: more luminous, gradient-rimmed card */
+.lp-verify { background: radial-gradient(900px 520px at 88% -5%, rgba(106, 166, 218, 0.5), transparent 60%), radial-gradient(760px 460px at 0 105%, rgba(190, 178, 246, 0.28), transparent 60%), radial-gradient(600px 360px at 50% 110%, rgba(225, 229, 172, 0.16), transparent 60%), var(--grad-dark); }
+.lp-cred::before { content: ''; position: absolute; inset: -1px; border-radius: 24px; padding: 1px; pointer-events: none; opacity: 0.7;
+  background: conic-gradient(from 200deg, rgba(138, 187, 230, 0.8), rgba(225, 229, 172, 0.7), rgba(190, 178, 246, 0.7), rgba(138, 187, 230, 0.8));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+
+/* final CTA: vivid mesh */
+
+/* let the halo escape the window frame */
+
+/* ═════════════ restructure: centred hero + live demo first ═════════════ */
+.lp-hero { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 48px 0 36px; gap: 0; }
+.lp-hero-copy { max-width: 880px; display: flex; flex-direction: column; align-items: center; }
+.lp-hero h1 { font-size: clamp(44px, 6.6vw, 88px); }
+.lp-hero .lead { max-width: 36em; margin-bottom: 30px; }
+.lp-ctas { justify-content: center; }
+.lp-demo-sec { position: relative; z-index: 1; padding: 6px 0 36px; }
+.lp-demo-sec .lp-trust { justify-content: center; margin-top: 30px; }
+
+/* tighter hero so the live map is visible without scrolling */
+.lp-hero { padding: 22px 0 22px; }
+.lp-hero h1 { font-size: clamp(40px, 5.4vw, 72px); margin-bottom: 14px; }
+.lp-hero .lead { font-size: clamp(16px, 1.7vw, 19px); margin-bottom: 22px; }
+.lp-badge { margin-bottom: 16px; }
+@media (max-width: 560px) { .lp-hero { padding: 16px 0; } .lp-hero h1 { font-size: 40px; } }

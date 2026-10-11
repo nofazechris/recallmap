@@ -1,0 +1,58 @@
+.study { min-height: 100vh; display: flex; flex-direction: column; max-width: 760px; margin: 0 auto; padding: 0 20px; }
+.study header { display: flex; align-items: center; gap: 16px; padding: 20px 0; }
+.study .end { display: flex; align-items: center; gap: 7px; color: rgba(0, 0, 0, 0.6); font-size: 14px; font-weight: 500; }
+.study .end:hover { color: #000; }
+.study .mid { margin: 0 auto; text-align: center; }
+.study .mid small { display: block; font-size: 12px; color: var(--ink-3); }
+.study .mid b { font-size: 15px; font-weight: 600; }
+.study .time { display: flex; align-items: center; gap: 7px; font-size: 14px; color: rgba(0, 0, 0, 0.6); min-width: 64px; justify-content: flex-end; }
+.study .prog { display: flex; align-items: center; gap: 14px; padding-top: 8px; }
+.study .prog .bar { flex: 1; height: 7px; }
+.study .prog span { font-size: 13px; font-weight: 600; color: rgba(0, 0, 0, 0.5); white-space: nowrap; }
+.practice-note { display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 13px; color: var(--blue-deep); background: var(--blue-tint); padding: 8px 14px; border-radius: 999px; align-self: center; }
+
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 28px 0; animation: rm-rise 0.35s var(--ease) both; }
+.stage .tag { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); text-align: center; margin-bottom: 18px; }
+.flipper { perspective: 1400px; cursor: pointer; margin-bottom: 28px; border: 0; background: none; padding: 0; display: block; width: 100%; font-family: inherit; color: inherit; text-align: left; }
+.flipper .inner { position: relative; display: block; width: 100%; min-height: 320px; transition: transform 0.6s var(--ease); transform-style: preserve-3d; }
+.flipper .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 24px; padding: 40px; display: flex; flex-direction: column; box-shadow: 0 26px 54px -30px rgba(28, 58, 82, 0.45); }
+.flipper .front { background: linear-gradient(160deg, #fff, #f3f6f9); border: 1px solid rgba(0, 0, 0, 0.08); align-items: center; justify-content: center; text-align: center; }
+.flipper .front::before { content: ''; position: absolute; inset: 0; border-radius: 24px; background: radial-gradient(circle at 90% 0, rgba(138, 187, 230, 0.28), transparent 55%); pointer-events: none; }
+.flipper .q { font-size: clamp(26px, 4vw, 38px); line-height: 1.15; position: relative; }
+.flipper .reveal { margin-top: 26px; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: rgba(0, 0, 0, 0.4); font-weight: 500; position: relative; }
+.flipper .back { background: var(--grad-lime); transform: rotateY(180deg); justify-content: center; }
+.flipper .back small { font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--lime-ink); margin-bottom: 14px; }
+.flipper .a { font-size: clamp(19px, 2.6vw, 24px); line-height: 1.35; font-weight: 500; margin-bottom: 16px; }
+.flipper .ex { font-size: 14px; color: var(--lime-ink); line-height: 1.45; }
+
+.rate .lbl { font-size: 13px; text-align: center; color: rgba(0, 0, 0, 0.5); margin-bottom: 12px; }
+.rate .btns { display: flex; gap: 10px; }
+.conf { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 13px 8px; border-radius: 14px; border: 1.5px solid rgba(0, 0, 0, 0.12); background: #fff; cursor: pointer; font-size: 14px; font-weight: 600; font-family: inherit; position: relative; transition: transform 0.12s ease, border-color 0.14s ease; }
+.conf:hover { transform: translateY(-2px); border-color: rgba(0, 0, 0, 0.3); }
+.conf small { font-size: 11px; font-weight: 500; color: rgba(0, 0, 0, 0.45); }
+.conf kbd { position: absolute; top: 6px; right: 8px; font-family: inherit; font-size: 10px; color: rgba(0, 0, 0, 0.25); }
+.conf.again { border-color: rgba(194, 98, 47, 0.5); color: var(--clay); }
+.conf.good { border-color: var(--blue); color: var(--blue-deep); background: linear-gradient(160deg, #fff, rgba(138, 187, 230, 0.2)); }
+.wait { text-align: center; color: rgba(0, 0, 0, 0.3); font-size: 13px; padding: 17px; }
+
+.summary { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 0; }
+.summary svg { margin-bottom: 18px; }
+.summary .quote { font-family: var(--font-serif); font-style: italic; font-size: 16px; color: rgba(0, 0, 0, 0.5); margin-bottom: 6px; }
+.summary h1 { font-size: clamp(34px, 5vw, 50px); margin-bottom: 28px; }
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; max-width: 440px; margin-bottom: 24px; }
+.trio > div { background: #fff; border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 16px; padding: 18px; }
+.trio .xp { background: var(--grad-lime); }
+.trio b { display: block; font-size: 28px; font-weight: 700; }
+.trio span { font-size: 12px; color: var(--ink-2); }
+.trio .xp span { color: var(--lime-ink); }
+.sooner { background: #fff; border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 16px; padding: 16px 20px; width: 100%; max-width: 440px; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; text-align: left; }
+.sooner > span { width: 40px; height: 40px; flex: none; border-radius: 12px; background: var(--clay-tint); display: grid; place-items: center; color: var(--clay); }
+.sooner svg { margin: 0; }
+.sooner b { display: block; font-size: 14px; }
+.sooner small { font-size: 13px; color: var(--ink-2); }
+.summary .acts { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+.st-empty { margin: auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 360px; }
+.st-empty h1 { font-size: 40px; }
+.st-empty p { color: var(--ink-2); margin-bottom: 8px; }
+@media (max-width: 520px) { .rate .btns { flex-wrap: wrap; } .conf { flex: 1 1 40%; } .flipper .face { padding: 28px; } }

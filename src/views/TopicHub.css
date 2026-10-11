@@ -1,0 +1,81 @@
+/* ═════════════ topic hub restructure ═════════════ */
+.topic .banner { position: relative; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr); gap: 24px; align-items: center; padding: clamp(22px, 3.5vw, 34px); border-radius: 28px; margin-bottom: 26px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.9); background: linear-gradient(160deg, #fff, #f4f7fa); box-shadow: 0 34px 60px -42px rgba(28, 58, 82, 0.6); }
+@media (max-width: 760px) { .topic .banner { grid-template-columns: minmax(0, 1fr); } }
+.topic .banner .bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(55% 90% at 0% 0%, rgba(138, 187, 230, 0.4), transparent 70%), radial-gradient(50% 90% at 100% 0%, rgba(225, 229, 172, 0.7), transparent 70%), radial-gradient(40% 80% at 60% 120%, rgba(190, 178, 246, 0.4), transparent 70%); }
+.topic .banner > * { position: relative; }
+.topic .banner .tags { margin-bottom: 12px; }
+.topic .banner .h1 { margin-bottom: 6px; }
+.topic .banner .goal { font-size: 15px; color: var(--ink-2); margin-bottom: 20px; max-width: 36em; }
+.topic .b-acts { display: flex; gap: 12px; flex-wrap: wrap; }
+.topic .b-stats { margin: 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.topic .b-stats .ringbox { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 20px; background: rgba(255, 255, 255, 0.75); border: 1px solid rgba(255, 255, 255, 0.95); font-size: 13px; color: var(--ink-2); }
+.topic .b-stats .ringbox b { color: #000; font-size: 15px; }
+.topic .b-stats > div:not(.ringbox) { padding: 12px 14px; border-radius: 16px; background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.9); }
+.topic .b-stats dt { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); }
+.topic .b-stats dd { margin: 2px 0 0; font-size: 22px; font-weight: 700; }
+
+.topic .tabs button em { font-style: normal; margin-left: 7px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px; background: rgba(0, 0, 0, 0.07); color: var(--ink-3); }
+.topic .tabs button.on em { background: var(--blue-tint); color: var(--blue-deep); }
+
+.topic .ov { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px; align-items: start; }
+@media (max-width: 860px) { .topic .ov { grid-template-columns: minmax(0, 1fr); } }
+.topic .ov-left { display: flex; flex-direction: column; gap: 16px; }
+.topic .plan { padding: 22px; background: radial-gradient(circle at 100% 0, rgba(246, 205, 176, 0.6), transparent 55%), linear-gradient(160deg, #fff, #fbf8f3); box-shadow: var(--shadow-card); }
+.topic .plan .caps { margin-bottom: 12px; }
+.topic .plan-h { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.topic .plan-h b { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+.topic .plan-h span { font-size: 14px; color: var(--ink-2); }
+.topic .plan-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.topic .pchip { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1.5px solid rgba(194, 98, 47, 0.35); color: #000; transition: transform 0.14s ease, border-color 0.14s ease; }
+.topic .pchip:hover { transform: translateY(-2px); border-color: var(--clay); color: #000; }
+.topic .pchip em { font-style: normal; font-size: 11px; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: var(--clay-tint); color: var(--clay); display: grid; place-items: center; }
+.topic .sc-card { padding: 20px 22px; }
+.topic .sc-card .caps { margin-bottom: 14px; }
+.topic .scores { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.topic .ov-map { padding: 0; overflow: hidden; box-shadow: var(--shadow-card); }
+.topic .ov-map-h { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px 12px; }
+.topic .ov-map-h .caps { margin: 0; }
+.topic .ov-map-h .more { font-size: 13px; font-weight: 600; }
+.topic .ov-map .canvas { position: relative; height: 330px; border-top: 1px solid rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05); background: radial-gradient(circle at 50% 44%, #fff, #e3ebf1 170%); overflow: hidden; }
+.topic .ov-map .gl { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 50% at 15% 15%, rgba(190, 178, 246, 0.4), transparent 70%), radial-gradient(60% 50% at 90% 92%, rgba(225, 229, 172, 0.55), transparent 70%); }
+.topic .ov-map .selbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 22px; min-height: 66px; flex-wrap: wrap; }
+.topic .ov-map .selbar > div { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; }
+.topic .ov-map .selbar b { font-size: 15px; }
+.topic .ov-map .selbar small { font-size: 13px; color: var(--ink-3); }
+.topic .st-mastered { background: var(--lime); color: var(--lime-ink); }
+.topic .st-strong, .topic .st-learning { background: rgba(106, 166, 218, 0.14); color: var(--blue-deep); }
+.topic .st-due { background: rgba(246, 99, 27, 0.12); color: var(--clay); }
+.topic .st-unexplored { background: rgba(0, 0, 0, 0.06); color: rgba(0, 0, 0, 0.5); }
+
+/* flashcards toolbar + cards */
+.topic .cards-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.topic .csearch { flex: 1; min-width: 180px; display: flex; align-items: center; gap: 9px; height: 42px; padding: 0 14px; border-radius: 999px; background: #fff; border: 1.5px solid var(--line-2); color: var(--ink-3); }
+.topic .csearch:focus-within { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(106, 166, 218, 0.16); }
+.topic .csearch input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 14px; color: var(--ink); }
+.topic .cfilters { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 14px; scrollbar-width: none; }
+.topic .cfilters .chip { padding: 6px 13px; font-size: 13px; white-space: nowrap; }
+.topic .fc-top .duepill { font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: var(--clay-tint); color: var(--clay); }
+.topic .fc-foot { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.topic .fc-foot .bar { flex: 1; }
+.topic .fc-foot em { font-style: normal; font-size: 11.5px; font-weight: 600; color: var(--ink-3); }
+.topic .fc-foot button { border: 0; background: none; padding: 5px; border-radius: 8px; cursor: pointer; color: var(--ink-4); display: flex; align-items: center; font: inherit; font-size: 12px; font-weight: 600; opacity: 0; transition: opacity 0.14s ease, color 0.14s ease, background 0.14s ease; }
+.topic .fc:hover .fc-foot button, .topic .fc:focus-within .fc-foot button { opacity: 1; }
+@media (hover: none) { .topic .fc-foot button { opacity: 1; } }
+.topic .fc-foot button:hover { color: #000; background: var(--mist); }
+.topic .fc-foot button.danger { opacity: 1; color: var(--clay); background: var(--clay-tint); padding: 5px 9px; }
+.topic .fc-edit { display: flex; flex-direction: column; gap: 8px; }
+.topic .fc-edit .row { display: flex; gap: 8px; }
+.topic .fc span { font-size: 13px; color: var(--ink-2); }
+
+/* quiz tab */
+.topic .quiz-tab { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(220px, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 860px) { .topic .quiz-tab { grid-template-columns: minmax(0, 1fr); } }
+.topic .qprev { max-width: none; }
+.topic .q-acts { display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; }
+.topic .qside { padding: 22px; background: linear-gradient(160deg, #fff, #f1f5f9); box-shadow: var(--shadow-card); }
+.topic .qside .caps { margin-bottom: 14px; }
+.topic .qside .best { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+.topic .qside .best b { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; }
+.topic .qside .best span { color: var(--ink-3); font-size: 13px; }
+.topic .qside p { font-size: 13.5px; margin-bottom: 14px; }

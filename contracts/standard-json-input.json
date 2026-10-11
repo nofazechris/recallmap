@@ -1,0 +1,24 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/src/CredentialRegistry.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.24;\n\n/// @title RecallMap CredentialRegistry\n/// @notice Public, privacy-preserving registry of achievement credentials.\n/// @dev Only a hash of a canonical, versioned credential payload is stored: never notes, answers or personal data.\n///      A credential id is chosen by the issuer and can be issued exactly once.\ncontract CredentialRegistry {\n    struct Credential {\n        bytes32 payloadHash;\n        address issuer;\n        uint64 issuedAt;\n        bool revoked;\n    }\n\n    address public owner;\n    mapping(address => bool) public issuers;\n    mapping(bytes32 => Credential) private _credentials;\n\n    event CredentialIssued(bytes32 indexed credentialId, bytes32 indexed payloadHash, address indexed issuer, uint64 issuedAt);\n    event CredentialRevoked(bytes32 indexed credentialId, address indexed by);\n    event IssuerUpdated(address indexed issuer, bool allowed);\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    error NotOwner();\n    error NotIssuer();\n    error AlreadyIssued(bytes32 credentialId);\n    error EmptyHash();\n    error EmptyId();\n    error NotFound(bytes32 credentialId);\n    error NotAllowedToRevoke();\n    error ZeroAddress();\n\n    modifier onlyOwner() {\n        if (msg.sender != owner) revert NotOwner();\n        _;\n    }\n\n    modifier onlyIssuer() {\n        if (!issuers[msg.sender]) revert NotIssuer();\n        _;\n    }\n\n    constructor(address initialIssuer) {\n        if (initialIssuer == address(0)) revert ZeroAddress();\n        owner = msg.sender;\n        emit OwnershipTransferred(address(0), msg.sender);\n        issuers[initialIssuer] = true;\n        emit IssuerUpdated(initialIssuer, true);\n    }\n\n    /// @notice Anchor a credential. Reverts if the id was already used.\n    function issue(bytes32 credentialId, bytes32 payloadHash) external onlyIssuer {\n        if (credentialId == bytes32(0)) revert EmptyId();\n        if (payloadHash == bytes32(0)) revert EmptyHash();\n        if (_credentials[credentialId].issuer != address(0)) revert AlreadyIssued(credentialId);\n        uint64 ts = uint64(block.timestamp);\n        _credentials[credentialId] = Credential(payloadHash, msg.sender, ts, false);\n        emit CredentialIssued(credentialId, payloadHash, msg.sender, ts);\n    }\n\n    /// @notice Revoke a credential. Allowed for the issuer that created it, or the contract owner.\n    function revoke(bytes32 credentialId) external {\n        Credential storage c = _credentials[credentialId];\n        if (c.issuer == address(0)) revert NotFound(credentialId);\n        if (msg.sender != c.issuer && msg.sender != owner) revert NotAllowedToRevoke();\n        c.revoked = true;\n        emit CredentialRevoked(credentialId, msg.sender);\n    }\n\n    /// @notice Public lookup. `issuer == address(0)` means the credential does not exist.\n    function get(bytes32 credentialId) external view returns (bytes32 payloadHash, address issuer, uint64 issuedAt, bool revoked) {\n        Credential storage c = _credentials[credentialId];\n        return (c.payloadHash, c.issuer, c.issuedAt, c.revoked);\n    }\n\n    /// @notice True only if the credential exists, is not revoked, and its stored hash equals `expectedHash`.\n    function verify(bytes32 credentialId, bytes32 expectedHash) external view returns (bool) {\n        Credential storage c = _credentials[credentialId];\n        return c.issuer != address(0) && !c.revoked && c.payloadHash == expectedHash;\n    }\n\n    function setIssuer(address account, bool allowed) external onlyOwner {\n        if (account == address(0)) revert ZeroAddress();\n        issuers[account] = allowed;\n        emit IssuerUpdated(account, allowed);\n    }\n\n    function transferOwnership(address newOwner) external onlyOwner {\n        if (newOwner == address(0)) revert ZeroAddress();\n        emit OwnershipTransferred(owner, newOwner);\n        owner = newOwner;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "paris",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background:
+    radial-gradient(900px 520px at 100% -6%, rgba(106, 166, 218, 0.16), transparent 58%),
+    radial-gradient(760px 460px at -6% 104%, rgba(225, 229, 172, 0.26), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+::selection { background: var(--lime); }
+a { color: var(--blue-link); text-decoration: none; }
+a:hover { color: var(--ink); }
+button { font-family: inherit; }
+img, svg { display: block; }
+h1, h2, h3, p { margin: 0; }
+
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 8px; }
+
+.serif { font-family: var(--font-serif); font-weight: 400; }
+.tnum { font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-2); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ───────── animation primitives ───────── */
+@keyframes rm-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(2deg); } }
+@keyframes rm-float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes rm-flutter { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(0.9); } }
+@keyframes rm-draw { to { stroke-dashoffset: 0; } }
+@keyframes rm-pulse { 0% { transform: scale(1); opacity: 0.55; } 70% { transform: scale(1.9); opacity: 0; } 100% { opacity: 0; } }
+@keyframes rm-spin { to { transform: rotate(360deg); } }
+@keyframes rm-bar { 0% { transform: translateX(-100%); } 100% { transform: translateX(250%); } }
+@keyframes rm-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes rm-toastin { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes rm-drift-a { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(60px, 40px) scale(1.12); } }
+@keyframes rm-drift-b { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-70px, 30px) scale(1.08); } }
+@keyframes rm-drift-c { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(30px, -50px) scale(1.15); } }
+@keyframes rm-shimmer { to { background-position: 200% center; } }
+@keyframes rm-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rm-pop { 0% { transform: scale(0.94); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+.rise { animation: rm-rise 0.6s var(--ease) both; }
+
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+.spin { animation: rm-spin 1s linear infinite; }

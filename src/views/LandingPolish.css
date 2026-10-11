@@ -1,0 +1,51 @@
+/* ───────── landing polish: details that make the page feel finished ───────── */
+
+/* anchors land below the sticky nav instead of under it */
+.lp section[id] { scroll-margin-top: 76px; }
+
+/* balanced headlines — no single orphan word on the last line */
+.lp h1, .lp .h2, .lp .lp-head .lead, .lp-hero .lead { text-wrap: balance; }
+.lp .lead, .lp-bento .tile p { text-wrap: pretty; }
+
+/* nav: the section you're reading stays marked */
+.lp-links a.on { color: #000; font-weight: 600; }
+.lp-links a.on::after { transform: scaleX(1); }
+
+/* mobile menu */
+.lp-burger { display: none; width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(255, 255, 255, 0.8); color: #000; cursor: pointer; place-items: center; padding: 0; }
+.lp-burger:hover { background: #fff; }
+.lp-menu { display: none; }
+@media (max-width: 900px) {
+  .lp-burger { display: grid; }
+  .lp-menu { display: flex; flex-direction: column; gap: 2px; margin: 0 16px; padding: 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.94); border: 1px solid rgba(0, 0, 0, 0.07); box-shadow: 0 24px 48px -24px rgba(28, 58, 82, 0.5); animation: rm-pop 0.18s var(--ease); }
+  .lp-menu a { padding: 13px 16px; border-radius: 12px; font-size: 16px; font-weight: 500; color: rgba(0, 0, 0, 0.72); }
+  .lp-menu a:hover, .lp-menu a.on { background: var(--blue-tint); color: var(--blue-deep); }
+}
+@media (max-width: 420px) { .lp-signin { display: none; } }
+
+/* bento tags stay legible on the tinted tiles */
+.lp-bento .tag:not(.p-prove) { background: rgba(255, 255, 255, 0.82); }
+.lp-bento .t-proof .tag { background: rgba(190, 178, 246, 0.22); }
+
+/* marquee: pause when someone looks closely */
+.lp-strip:hover .track { animation-play-state: paused; }
+
+/* honest replacements for the old sample-data widgets */
+.lp-bento .chipline { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; }
+.lp-bento .chipline li { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(0, 0, 0, 0.07); color: var(--ink-2); }
+.lp-comm-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .lp-comm-cards { grid-template-columns: minmax(0, 1fr); } }
+.lp-comm-cards article { padding: 26px; border-radius: 24px; background: linear-gradient(170deg, #fff, #fbfaf4); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: var(--shadow-card); }
+.lp-comm-cards article > span { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: var(--blue-tint); color: var(--blue-deep); margin-bottom: 16px; }
+.lp-comm-cards h3 { font-size: 19px; margin-bottom: 8px; letter-spacing: -0.01em; }
+.lp-comm-cards p { font-size: 15px; color: var(--ink-2); }
+.lp-anat { padding: 26px; border-radius: 24px; color: #fbfbf8; background: linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)); border: 1px solid rgba(251, 251, 248, 0.14); }
+.lp-anat .caps { color: rgba(251, 251, 248, 0.5); margin-bottom: 12px; }
+.lp-anat pre { margin: 0 0 14px; padding: 16px; border-radius: 14px; background: rgba(0, 0, 0, 0.32); font-size: 12.5px; line-height: 1.6; overflow-x: auto; color: #cfe3f5; }
+.lp-anat .arrow { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--lime); margin-bottom: 10px; }
+.lp-anat code { display: block; padding: 12px 14px; border-radius: 12px; background: rgba(225, 229, 172, 0.12); color: var(--lime); font-size: 12.5px; margin-bottom: 14px; overflow-wrap: anywhere; }
+.lp-anat p { font-size: 14px; color: rgba(251, 251, 248, 0.7); margin: 0; }
+
+/* calm call-to-action: a soft, quiet shadow instead of a glow */
+.lp .btn-primary { box-shadow: 0 8px 18px -12px rgba(87, 147, 206, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+.lp .btn-primary:hover { box-shadow: 0 10px 20px -12px rgba(87, 147, 206, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.5); }

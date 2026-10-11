@@ -1,0 +1,10 @@
+/* Performance pass: big soft glows are painted with radial gradients instead of filter: blur(),
+   which is expensive to rasterise on large elements. Same look, much cheaper. */
+
+.lp-aurora .blob { filter: none; opacity: 1; will-change: transform; }
+.lp-aurora::after { filter: none; background: radial-gradient(closest-side, rgba(246, 217, 196, 0.75), rgba(246, 217, 196, 0)); }
+
+.lp-verify .orb { filter: none; opacity: 1; }
+.lp-verify .o1 { background: radial-gradient(closest-side, rgba(87, 147, 206, 0.75), transparent); width: 520px; height: 520px; }
+.lp-verify .o2 { background: radial-gradient(closest-side, rgba(138, 123, 224, 0.55), transparent); width: 480px; height: 480px; }
+

@@ -1,0 +1,53 @@
+:root {
+  /* ink & surfaces */
+  --bg: #fbfbf8;
+  --ink: #000;
+  --ink-2: rgba(0, 0, 0, 0.62);
+  --ink-3: rgba(0, 0, 0, 0.45);
+  --ink-4: rgba(0, 0, 0, 0.3);
+  --line: rgba(0, 0, 0, 0.08);
+  --line-2: rgba(0, 0, 0, 0.14);
+  --surface: #fff;
+
+  /* brand */
+  --blue: #6aa6da;
+  --blue-2: #8abbe6;
+  --blue-3: #5793ce;
+  --blue-ink: #06243b;
+  --blue-deep: #2d618f;
+  --blue-link: #3f7fb8;
+  --blue-tint: rgba(106, 166, 218, 0.12);
+  --mist: #dbe3e9;
+  --lime: #e1e5ac;
+  --lime-2: #c9ce7f;
+  --lime-ink: #5a6333;
+  --clay: #c2622f;
+  --clay-tint: rgba(194, 98, 47, 0.1);
+  --lilac: #cfc9f3;
+  --peach: #f6d9c4;
+
+  /* gradients */
+  --grad-primary: linear-gradient(135deg, #8abbe6 0%, #6aa6da 45%, #5793ce 100%);
+  --grad-dark: linear-gradient(135deg, #243544 0%, #0c161f 60%, #000 100%);
+  --grad-text: linear-gradient(100deg, #1f4f7d 0%, #3f86cc 45%, #7f9c3a 100%);
+  --grad-card: linear-gradient(170deg, #ffffff, #fbfaf4);
+  --grad-mist: linear-gradient(160deg, #ffffff, #dbe3e9 150%);
+  --grad-sky: radial-gradient(circle at 70% 20%, #6aa6da, #3f7fb8 120%);
+  --grad-lime: linear-gradient(145deg, #eef0c8, #e1e5ac);
+
+  /* elevation */
+  --shadow-sm: 0 8px 18px -12px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 14px 30px -24px rgba(28, 58, 82, 0.45);
+  --shadow-lg: 0 30px 60px -32px rgba(28, 58, 82, 0.4);
+  --shadow-blue: 0 10px 24px -8px rgba(106, 166, 218, 0.7);
+
+  --page-w: 1080px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --radius: 20px;
+  --r-xl: 24px;
+  --r-hero: 28px;
+  --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

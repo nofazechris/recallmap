@@ -1,0 +1,53 @@
+{
+  "name": "recallmap",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx --env-file-if-exists=.env.local scripts/migrate.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "contracts:build": "tsx scripts/compile-contracts.ts",
+    "contracts:deploy": "tsx --env-file-if-exists=.env.local scripts/deploy-contract.ts",
+    "storage:check": "tsx --env-file-if-exists=.env.local scripts/check-storage.ts",
+    "arc:check": "tsx --env-file-if-exists=.env.local scripts/check-arc.ts",
+    "env:check": "tsx --env-file-if-exists=.env.local scripts/check-env.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1149.0",
+    "@aws-sdk/s3-request-presigner": "^3.1149.0",
+    "@electric-sql/pglite": "^0.5.8",
+    "@ethereumjs/common": "^10.1.3",
+    "@ethereumjs/evm": "^10.1.3",
+    "@ethereumjs/util": "^10.1.3",
+    "@neondatabase/serverless": "^1.2.0",
+    "bcryptjs": "^3.0.3",
+    "drizzle-orm": "^0.45.4",
+    "mammoth": "^1.13.0",
+    "next": "^16.4.0",
+    "next-auth": "^5.0.0-beta.32",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "solc": "^0.8.37",
+    "unpdf": "^1.8.1",
+    "viem": "^2.57.4",
+    "ws": "^8.22.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/ws": "^8.18.2",
+    "drizzle-kit": "^0.31.11",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

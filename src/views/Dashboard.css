@@ -1,0 +1,92 @@
+.dash-head { display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
+.dash-head > div:first-child { flex: 1; min-width: 260px; }
+.dash-head .eyebrow { margin-bottom: 10px; }
+.dash .bell-dot { position: absolute; top: 9px; right: 10px; width: 9px; height: 9px; border-radius: 999px; background: var(--blue); border: 2px solid #fff; }
+.dash .dcard { padding: 24px; display: flex; flex-direction: column; }
+.dash .dcard .caps { margin-bottom: 18px; }
+.dash-empty { display: flex; gap: 24px; align-items: center; padding: 28px; margin-bottom: 20px; background: linear-gradient(135deg, rgba(138, 187, 230, 0.25), rgba(225, 229, 172, 0.4)); }
+.dash-empty h2 { font-family: var(--font-serif); font-weight: 400; font-size: 30px; margin-bottom: 6px; }
+.dash-empty p { color: var(--ink-2); margin-bottom: 16px; max-width: 34em; }
+
+.dash .today { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.dash .today b { display: block; font-size: 16px; font-weight: 600; }
+.dash .today span { font-size: 14px; color: var(--ink-2); }
+.dash .mini2 { display: flex; gap: 12px; }
+.dash .mini2 > div { flex: 1; background: linear-gradient(160deg, #fff, #f6f8f4); border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 14px; padding: 14px; }
+.dash .mini2 b { display: flex; align-items: center; gap: 7px; font-size: 24px; font-weight: 700; }
+.dash .mini2 b.flame { color: #f6631b; }
+.dash .mini2 span { font-size: 13px; color: var(--ink-2); }
+
+.dash .cont-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.dash .cont-name { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #000; }
+.dash .cont-name:hover { color: var(--blue-deep); }
+.dash .next { font-size: 14px; color: var(--ink-2); margin-bottom: 18px; }
+
+.dash .row-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.dash .row-h .caps { margin: 0; }
+.dash .more { font-size: 13px; font-weight: 600; }
+
+.dash .mapbox { position: relative; display: block; height: 260px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0, 0, 0, 0.05);
+  background: radial-gradient(circle at 50% 46%, rgba(138, 187, 230, 0.28), transparent 60%), linear-gradient(160deg, #fbfbf8, #dbe3e9 150%); }
+.dash .mapbox-empty { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; color: var(--ink-3); font-size: 14px; }
+
+.dash .stats4 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+.dash .stats4 b { display: block; font-size: 28px; font-weight: 700; }
+.dash .stats4 span { font-size: 13px; color: var(--ink-2); }
+.dash .week { display: flex; align-items: flex-end; gap: 8px; height: 80px; margin-top: auto; }
+.dash .week > div { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; }
+.dash .week i { width: 100%; background: var(--mist); border-radius: 6px 6px 0 0; transition: height 0.5s ease; }
+.dash .week i.on { background: var(--blue); }
+.dash .week i.today { background: var(--grad-primary); box-shadow: 0 6px 14px -6px rgba(106, 166, 218, 0.9); }
+.dash .week span { font-size: 10px; color: var(--ink-3); }
+
+.dash .ach-list { display: flex; flex-direction: column; gap: 12px; }
+.dash .ach { display: flex; align-items: center; gap: 14px; }
+.dash .ach .ico { width: 46px; height: 46px; flex: none; border-radius: 14px; display: grid; place-items: center; }
+.dash .ach .ico.lime { background: var(--grad-lime); color: var(--lime-ink); }
+.dash .ach .ico.blue { background: var(--mist); color: var(--blue-deep); }
+.dash .ach .ico.dashed { background: #fbfbf8; border: 1.5px dashed rgba(0, 0, 0, 0.2); color: rgba(0, 0, 0, 0.4); }
+.dash .ach b { display: block; font-size: 15px; font-weight: 600; }
+.dash .ach small { font-size: 13px; color: var(--ink-2); }
+.dash .ach.locked { opacity: 0.6; }
+.dash .ach > div { min-width: 0; }
+
+.dash .feed { display: flex; flex-direction: column; gap: 14px; }
+.dash .feed > div { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; }
+.dash .feed span { width: 34px; height: 34px; flex: none; border-radius: 999px; }
+.dash .feed em { font-style: normal; color: var(--ink-3); }
+@media (max-width: 560px) { .dash-empty { flex-direction: column; text-align: center; } }
+
+/* ───── map hero ───── */
+.dash .dmap { padding: 0; overflow: hidden; margin-bottom: 0; background: linear-gradient(180deg, #fff, #fbfaf4); box-shadow: 0 30px 60px -38px rgba(28, 58, 82, 0.5); }
+.dash .dmap-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 22px 24px 4px; flex-wrap: wrap; }
+.dash .dmap-head h2 { font-family: var(--font-serif); font-weight: 400; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.05; margin-top: 4px; }
+.dash .dmap-head .caps { margin: 0; }
+.dash .dmap-topics { display: flex; gap: 8px; padding: 12px 24px 16px; overflow-x: auto; scrollbar-width: none; }
+.dash .dmap-topics .chip { padding: 7px 14px; font-size: 13px; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+.dash .dmap-topics .dd { font-style: normal; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--clay-tint); color: var(--clay); display: grid; place-items: center; }
+.dash .dmap-body { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); border-top: 1px solid rgba(0, 0, 0, 0.06); }
+@media (max-width: 860px) { .dash .dmap-body { grid-template-columns: 1fr; } }
+.dash .dmap-canvas { position: relative; min-height: 440px; overflow: hidden; background: radial-gradient(circle at 50% 44%, #fff, #e3ebf1 170%); }
+.dash .dmap-canvas .gl { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 50% at 15% 15%, rgba(190, 178, 246, 0.4), transparent 70%), radial-gradient(60% 50% at 90% 92%, rgba(225, 229, 172, 0.55), transparent 70%), radial-gradient(45% 40% at 55% 42%, rgba(138, 187, 230, 0.32), transparent 70%); }
+.dash .dmap-canvas .empty { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; display: flex; flex-direction: column; gap: 8px; align-items: center; color: var(--ink-2); max-width: 280px; }
+.dash .dmap-side { padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 0; border-left: 1px solid rgba(0, 0, 0, 0.06); background: linear-gradient(180deg, #fff, #fafaf6); }
+@media (max-width: 860px) { .dash .dmap-side { border-left: 0; border-top: 1px solid rgba(0, 0, 0, 0.06); } }
+.dash .dmap-side .sd { font-size: 14px; color: var(--ink-2); margin: 14px 0 18px; text-wrap: pretty; min-height: 40px; }
+.dash .dmap-side .rr { display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--ink-2); margin-bottom: 18px; }
+.dash .dmap-side .rr b { color: #000; font-weight: 600; }
+.dash .dmap-side .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; margin-bottom: 20px; }
+.dash .dmap-side .duo > div { background: #fff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 14px; padding: 12px 14px; }
+.dash .dmap-side .duo b { display: block; font-size: 22px; font-weight: 700; }
+.dash .dmap-side .duo span { font-size: 12px; color: var(--ink-2); }
+.dash .dmap-side .btn { margin-top: auto; }
+.dash .dmap .st-mastered { background: var(--lime); color: var(--lime-ink); }
+.dash .dmap .st-strong, .dash .dmap .st-learning { background: rgba(106, 166, 218, 0.14); color: var(--blue-deep); }
+.dash .dmap .st-due { background: rgba(246, 99, 27, 0.12); color: var(--clay); }
+.dash .dmap .st-unexplored { background: rgba(0, 0, 0, 0.06); color: rgba(0, 0, 0, 0.5); }
+
+.dash .mini2 b.flame { gap: 6px; } .dash .mini2 b.flame svg { margin: -6px 0 -4px; }
+
+.dash .goal-list { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+.dash .goal-list > div { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: 13px; color: var(--ink-2); }
+.dash .goal-list em { font-style: normal; font-weight: 600; color: #000; }

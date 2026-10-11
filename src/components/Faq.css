@@ -1,0 +1,46 @@
+.faq { display: grid; grid-template-columns: minmax(250px, 0.8fr) minmax(0, 1.5fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+@media (max-width: 860px) { .faq { grid-template-columns: minmax(0, 1fr); } }
+
+.faq-side { position: sticky; top: 92px; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) { .faq-side { position: static; } }
+
+.faq .search { position: relative; display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 48px; border-radius: 999px; background: rgba(255, 255, 255, 0.85); border: 1.5px solid var(--line-2); color: var(--ink-3); transition: border-color 0.14s ease, box-shadow 0.14s ease; }
+.faq .search:focus-within { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(106, 166, 218, 0.16); }
+.faq .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; color: var(--ink); }
+.faq .search button { border: 0; background: var(--mist); width: 24px; height: 24px; border-radius: 999px; display: grid; place-items: center; cursor: pointer; color: var(--ink-2); }
+
+.faq .cats { display: flex; flex-direction: column; gap: 6px; }
+@media (max-width: 860px) { .faq .cats { flex-direction: row; flex-wrap: wrap; } }
+.faq .cats button { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 16px; border-radius: 14px; border: 1px solid transparent; background: transparent; font: inherit; font-size: 15px; font-weight: 500; color: var(--ink-2); cursor: pointer; transition: all 0.16s ease; text-align: left; }
+@media (max-width: 860px) { .faq .cats button { border-radius: 999px; border-color: var(--line-2); background: rgba(255, 255, 255, 0.7); padding: 8px 14px; font-size: 14px; } }
+.faq .cats button:hover { background: rgba(255, 255, 255, 0.7); color: #000; }
+.faq .cats button.on { background: var(--grad-primary); color: var(--blue-ink); font-weight: 600; box-shadow: 0 10px 20px -12px rgba(87, 147, 206, 0.9); }
+.faq .cats em { font-style: normal; font-size: 12px; font-weight: 700; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; display: grid; place-items: center; background: rgba(0, 0, 0, 0.06); }
+.faq .cats .on em { background: rgba(255, 255, 255, 0.5); }
+
+.faq .still { padding: 20px; border-radius: 20px; background: radial-gradient(circle at 100% 0, rgba(190, 178, 246, 0.5), transparent 60%), radial-gradient(circle at 0 100%, rgba(225, 229, 172, 0.7), transparent 60%), linear-gradient(160deg, #fff, #f4f6f8); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 0 20px 36px -28px rgba(28, 58, 82, 0.55); }
+.faq .still b { display: block; font-size: 16px; margin-bottom: 4px; }
+.faq .still p { font-size: 14px; color: var(--ink-2); margin-bottom: 14px; }
+
+/* accordion */
+.faq-list { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.faq .item { background: rgba(255, 255, 255, 0.72); border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 20px; transition: background 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
+.faq .item:hover { background: rgba(255, 255, 255, 0.92); }
+.faq .item.open { background: linear-gradient(160deg, #fff, #f1f5f9); border-color: rgba(106, 166, 218, 0.35); box-shadow: 0 22px 40px -30px rgba(28, 58, 82, 0.6); }
+.faq .item h3 { margin: 0; font-size: inherit; }
+.faq .item button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; border: 0; background: transparent; font: inherit; text-align: left; cursor: pointer; color: inherit; border-radius: 20px; }
+.faq .item button > span { display: flex; flex-direction: column; gap: 2px; font-size: 17px; font-weight: 600; letter-spacing: -0.005em; }
+.faq .item small { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+.faq .item button i { width: 32px; height: 32px; flex: none; border-radius: 999px; display: grid; place-items: center; color: var(--blue-deep); background: var(--blue-tint); transition: transform 0.25s var(--ease), background 0.2s ease, color 0.2s ease; }
+.faq .item.open button i { transform: rotate(45deg); background: var(--grad-primary); color: #fff; }
+.faq .panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s var(--ease); }
+.faq .item.open .panel { grid-template-rows: 1fr; }
+.faq .panel > div { overflow: hidden; }
+.faq .panel p { padding: 0 22px 20px; color: var(--ink-2); font-size: 15px; max-width: 42em; text-wrap: pretty; }
+.faq mark { background: linear-gradient(transparent 55%, rgba(225, 229, 172, 0.95) 55%); color: inherit; padding: 0 1px; }
+
+.faq .none { text-align: center; padding: 40px 20px; border-radius: 20px; border: 1.5px dashed rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.faq .none p { color: var(--ink-2); font-size: 14px; margin-bottom: 4px; }
+.faq .none .btn { margin: 0 4px; }
+.faq .none { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+.faq .none b, .faq .none p { flex-basis: 100%; }

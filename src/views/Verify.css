@@ -1,0 +1,27 @@
+.vf { min-height: 100vh; display: flex; flex-direction: column; }
+.vf > header { display: flex; align-items: center; justify-content: space-between; padding: 20px clamp(20px, 4vw, 40px); }
+.vf main { flex: 1; display: grid; place-items: start center; padding: 12px 20px 60px; }
+.vf .vf-card { width: 100%; max-width: 680px; padding: clamp(24px, 4vw, 40px); text-align: center; background: linear-gradient(170deg, #fff, #f3f7fa); }
+.vf .vf-ic { width: 64px; height: 64px; border-radius: 999px; display: inline-grid; place-items: center; margin-bottom: 14px; color: #fff; }
+.vf .vf-ic.ok { background: linear-gradient(145deg, #9bb36a, #7f9c3a); box-shadow: 0 14px 30px -12px rgba(127, 156, 58, 0.7); }
+.vf .vf-ic.no { background: var(--clay); }
+.vf .vf-ic.wait { background: var(--blue); }
+.vf h1 { font-size: clamp(30px, 5vw, 44px); margin: 6px 0 10px; }
+.vf .lead { margin: 0 auto 22px; max-width: 32em; font-size: 16px; }
+.vf .vf-facts { margin: 0 0 24px; padding: 6px 18px; border-radius: 16px; background: #fff; border: 1px solid var(--line); text-align: left; }
+.vf .vf-facts > div { display: flex; justify-content: space-between; gap: 18px; padding: 11px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.vf .vf-facts > div:first-child { border-top: 0; }
+.vf dt { color: var(--ink-3); flex: none; }
+.vf dd { margin: 0; font-weight: 600; text-align: right; min-width: 0; overflow-wrap: anywhere; }
+.vf .mono { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 12px; font-weight: 500; }
+.vf h2 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); text-align: left; margin: 0 0 10px; }
+.vf .vf-checks { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.vf .vf-checks li { display: flex; align-items: center; gap: 10px; font-size: 14.5px; padding: 10px 14px; border-radius: 12px; }
+.vf .vf-checks li.ok { background: rgba(225, 229, 172, 0.45); }
+.vf .vf-checks li.no { background: var(--clay-tint); color: #8a3d17; }
+.vf .vf-checks li.wait { background: var(--blue-tint); color: var(--blue-deep); }
+.vf .vf-how { text-align: left; border-top: 1px solid var(--line); padding-top: 16px; }
+.vf .vf-how summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+.vf .vf-how p { font-size: 14px; color: var(--ink-2); margin: 10px 0; }
+.vf .vf-how pre { margin: 10px 0; padding: 14px; border-radius: 12px; background: #0c161f; color: #cfe3f5; font-size: 12px; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+.vf code { font-size: 12.5px; background: var(--mist); padding: 1px 6px; border-radius: 6px; }

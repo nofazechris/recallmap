@@ -1,0 +1,26 @@
+.ta { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.ta-in { display: flex; align-items: center; gap: 9px; height: 44px; padding: 0 14px; border-radius: 999px; background: #fff; border: 1.5px solid var(--line-2); color: var(--ink-3); transition: border-color 0.14s ease, box-shadow 0.14s ease; }
+.ta-in:focus-within { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(106, 166, 218, 0.16); }
+.ta-in input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 14.5px; color: var(--ink); }
+.ta-row { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.ta .idk { border: 0; background: none; font: inherit; font-size: 13px; font-weight: 600; color: var(--ink-2); cursor: pointer; padding: 7px 12px; border-radius: 999px; }
+.ta .idk:hover { background: rgba(0, 0, 0, 0.06); color: #000; }
+
+.you-wrote { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 14px; background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(0, 0, 0, 0.07); font-size: 13px; color: var(--ink-2); min-width: 0; animation: rm-rise 0.3s var(--ease) both; }
+.you-wrote .mt { flex: none; font-size: 11.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+.you-wrote .mt.close { background: rgba(79, 174, 106, 0.18); color: #2f7a47; }
+.you-wrote .mt.partial { background: rgba(224, 179, 77, 0.22); color: #8a6414; }
+.you-wrote .mt.miss, .you-wrote .mt.none { background: var(--clay-tint); color: var(--clay); }
+.you-wrote .txt { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.you-wrote i { color: #000; font-style: normal; font-weight: 500; }
+
+/* cards in the demos are no longer tappable — you answer first */
+.demo-panel .flip, .s-rec .flip { cursor: default; }
+.demo-panel .mini { display: flex; flex-direction: column; gap: 10px; }
+.demo-panel .mini .flip { margin-bottom: 0; }
+.s-rec .you-wrote { margin-top: -2px; }
+
+/* the suggested rating */
+.demo-panel .rate .sug, .s-rec .rate .sug { box-shadow: 0 0 0 3px rgba(106, 166, 218, 0.35); border-color: var(--blue); }
+.s-rec .again-link { align-self: center; border: 0; background: none; font: inherit; font-size: 13px; font-weight: 600; color: var(--blue-link); cursor: pointer; padding: 4px 8px; }
+.s-rec .again-link:hover { color: #000; }

@@ -1,0 +1,112 @@
+/* ───────── buttons ───────── */
+.btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  font-weight: 600; font-size: 15px; line-height: 1; padding: 14px 24px; border-radius: 999px; border: 1.5px solid transparent;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn[disabled], .btn[aria-disabled='true'] { opacity: 0.5; pointer-events: none; filter: grayscale(0.4); }
+.btn-primary { background: var(--grad-primary); color: var(--blue-ink); box-shadow: var(--shadow-blue), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+.btn-primary:hover { color: var(--blue-ink); box-shadow: 0 16px 30px -8px rgba(106, 166, 218, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.5); filter: saturate(1.08); }
+.btn-dark { background: var(--grad-dark); color: var(--bg); box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+.btn-dark:hover { color: var(--bg); box-shadow: 0 18px 34px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.18); }
+.btn-ghost { background: rgba(255, 255, 255, 0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--ink); border-color: var(--line-2); }
+.btn-ghost:hover { background: #fff; border-color: rgba(106, 166, 218, 0.7); color: var(--ink); }
+.btn-outline { background: transparent; color: var(--ink); border-color: rgba(0, 0, 0, 0.18); }
+.btn-outline:hover { background: #fff; color: var(--ink); }
+.btn-soft { background: var(--blue-tint); color: var(--blue-deep); }
+.btn-soft:hover { background: rgba(106, 166, 218, 0.2); color: var(--blue-deep); }
+.btn-clay { background: rgba(194, 98, 47, 0.08); color: var(--clay); border-color: rgba(194, 98, 47, 0.4); }
+.btn-clay:hover { background: rgba(194, 98, 47, 0.16); color: var(--clay); }
+.btn-sm { font-size: 13px; padding: 9px 16px; }
+.btn-lg { font-size: 16px; padding: 16px 30px; }
+.btn-block { width: 100%; }
+.btn-icon { width: 44px; height: 44px; padding: 0; background: #fff; border-color: var(--line); color: var(--ink); box-shadow: var(--shadow-sm); position: relative; }
+.btn-icon:hover { background: var(--mist); color: var(--ink); }
+
+/* ───────── surfaces ───────── */
+.card { background: var(--grad-card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+.card-flat { background: #fff; border: 1px solid var(--line); border-radius: 18px; }
+.card-hover { transition: transform 0.16s ease, box-shadow 0.16s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -26px rgba(28, 58, 82, 0.45); }
+
+/* empty state: dashed outline, Mori or an icon, one line of why, one action */
+.empty-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 40px 24px; border-radius: var(--r-xl); border: 1.5px dashed rgba(0, 0, 0, 0.2); background: rgba(255, 255, 255, 0.45); }
+.empty-card > b { font-size: 18px; }
+.empty-card > p { color: var(--ink-2); font-size: 14px; max-width: 32em; margin-bottom: 8px; }
+
+/* inline "see all →" link that sits in a card header */
+.more, .lnk { border: 0; background: none; font: inherit; font-size: 13px; font-weight: 600; color: var(--blue-link); cursor: pointer; padding: 0; }
+.more:hover, .lnk:hover { color: var(--ink); }
+
+/* gradient-bordered card: 1px conic border painted behind a solid fill */
+.card-glow {
+  position: relative; border-radius: 22px; padding: 1.5px;
+  background: conic-gradient(from 210deg, #8abbe6, #e1e5ac, #cfc9f3, #8abbe6);
+  box-shadow: var(--shadow-lg);
+}
+.card-glow > .inner { border-radius: 20.5px; background: linear-gradient(160deg, #fff, #f1f5f8 170%); height: 100%; }
+
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+.caps { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.grad-text {
+  background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+}
+.grad-text-anim {
+  background: linear-gradient(100deg, #1f4f7d, #3f86cc, #7f9c3a, #3f86cc, #1f4f7d); background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  animation: rm-shimmer 7s linear infinite;
+}
+
+/* ───────── pills ───────── */
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; white-space: nowrap; }
+.pill-blue { background: var(--blue-tint); color: var(--blue-deep); }
+.pill-lime { background: var(--lime); color: var(--lime-ink); }
+.pill-mist { background: var(--mist); color: #1c3a52; }
+.pill-clay { background: var(--clay-tint); color: var(--clay); }
+.pill-dim { background: rgba(0, 0, 0, 0.06); color: var(--ink-3); }
+.chip { font-size: 14px; font-weight: 500; padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--line-2); background: #fff; cursor: pointer; transition: all 0.14s ease; }
+.chip:hover { border-color: var(--blue); }
+.chip.on { border-color: var(--blue); background: var(--blue-tint); color: var(--blue-deep); font-weight: 600; }
+
+/* ───────── forms ───────── */
+.field label, .label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.input {
+  width: 100%; font-family: inherit; font-size: 15px; padding: 13px 15px; border-radius: 13px;
+  border: 1.5px solid var(--line-2); background: #fff; outline: none; transition: border-color 0.14s ease, box-shadow 0.14s ease; color: var(--ink);
+}
+.input:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(106, 166, 218, 0.16); }
+.input.err { border-color: var(--clay); box-shadow: 0 0 0 4px rgba(194, 98, 47, 0.1); }
+.field-err { font-size: 12.5px; color: var(--clay); margin-top: 6px; }
+textarea.input { resize: vertical; }
+
+.seg { display: inline-flex; gap: 4px; background: var(--mist); border-radius: 999px; padding: 4px; }
+.seg > button { border: 0; background: transparent; color: var(--ink-2); font-weight: 600; font-size: 14px; padding: 9px 18px; border-radius: 999px; cursor: pointer; transition: all 0.16s ease; }
+.seg > button.on { background: #fff; color: var(--ink); box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.2); }
+.seg-grad > button.on { background: var(--grad-primary); color: var(--blue-ink); }
+
+.toggle { flex: none; width: 46px; height: 27px; border-radius: 999px; background: rgba(0, 0, 0, 0.18); position: relative; border: 0; padding: 0; cursor: pointer; transition: background 0.16s ease; }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 21px; height: 21px; border-radius: 999px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); transition: left 0.16s ease; }
+.toggle[aria-checked='true'] { background: var(--blue); }
+.toggle[aria-checked='true']::after { left: 22px; }
+
+/* progress */
+.bar { height: 8px; border-radius: 999px; background: var(--mist); overflow: hidden; }
+.bar > i { display: block; height: 100%; border-radius: 999px; background: var(--grad-primary); transition: width 0.4s ease; }
+.bar-sm { height: 6px; }
+
+/* ───────── dialog ───────── */
+.backdrop { position: fixed; inset: 0; z-index: 300; background: rgba(6, 36, 59, 0.38); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: grid; place-items: center; padding: 20px; animation: rm-fade 0.18s ease; }
+.dialog { width: 100%; max-width: 460px; background: #fff; border-radius: 24px; padding: 28px; box-shadow: 0 40px 80px -30px rgba(6, 36, 59, 0.6); animation: rm-pop 0.22s var(--ease); }
+.dialog h2 { font-family: var(--font-serif); font-weight: 400; font-size: 30px; line-height: 1.1; margin-bottom: 6px; }
+
+/* ───────── toasts ───────── */
+.toasts { position: fixed; top: 20px; right: 20px; z-index: 400; display: flex; flex-direction: column; gap: 10px; max-width: 340px; width: calc(100vw - 40px); pointer-events: none; }
+.toast { pointer-events: auto; display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 14px; padding: 14px 16px; box-shadow: 0 18px 40px -18px rgba(28, 58, 82, 0.5); animation: rm-toastin 0.3s ease; }
+.toast .ico { width: 34px; height: 34px; flex: none; border-radius: 10px; display: grid; place-items: center; }
+
+/* mori */
+.mori-wing { transform-origin: 60px 55px; animation: rm-flutter 2.6s ease-in-out infinite; }
+.mori-float { animation: rm-float 7s ease-in-out infinite; }
