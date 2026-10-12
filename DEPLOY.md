@@ -46,7 +46,9 @@ Then run `npm run storage:check` with `NEXT_PUBLIC_APP_URL` set to your producti
 Create a Resend account, verify your sending domain, create an API key, and set `RESEND_API_KEY` and `EMAIL_FROM` (e.g. `RecallMap <hello@your-domain.com>`). Setting them switches on email verification, which then gates community features, public profiles and credentials until a user confirms their address.
 
 ## 5. Background jobs & reminders
-`vercel.json` calls `/api/jobs/sweep` every 5 minutes. It recovers stuck jobs, finishes document processing / AI generation / credential confirmation, and sends the 9am-local "cards due" reminders. Vercel's Hobby plan only allows daily crons — on Hobby, use a free external scheduler (e.g. cron-job.org) to `POST` that URL every 5 minutes with header `Authorization: Bearer <CRON_SECRET>`.
+`vercel.json` runs `/api/jobs/sweep` **once a day** (the only schedule Vercel's free Hobby plan accepts) as a safety net. For real use you want it **every 5 minutes** — it finishes document processing / AI generation / credential confirmation that didn't complete in-request, and sends the 9am-local "cards due" reminders (these need frequent runs because every timezone's 9am is different).
+- **Free:** create a job at cron-job.org → URL `https://recallmap.top/api/jobs/sweep`, method `POST`, every 5 minutes, header `Authorization: Bearer <CRON_SECRET>`.
+- **Or** upgrade to Vercel Pro and change the schedule in `vercel.json` to `*/5 * * * *`.
 
 ## 6. After the first deploy — smoke test
 - `GET https://your-domain/api/health` → `{"ok":true,"db":true}`. With header `Authorization: Bearer <CRON_SECRET>` it also lists which services are configured.
