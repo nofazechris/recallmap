@@ -12,3 +12,4 @@ coverage
 
 .claude
 .env.*.local
+video-images

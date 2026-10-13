@@ -361,7 +361,7 @@ function Material({ topic, autoStart, onSaved }: { topic: TopicT; autoStart: boo
       <Link to={`/app/topics/${topic.id}/upload`} className="dropzone">
         <span className="ico"><Icon name="upload" size={24} /></span>
         <b>Drop a PDF, notes, or paste text</b>
-        <small>We’ll extract the text and build a study kit from it. Max 15 MB.</small>
+        <small>We’ll extract the text and build a study kit from it. Max 25 MB.</small>
       </Link>
 
       <div className="caps" style={{ marginBottom: 12 }}>Resource library</div>

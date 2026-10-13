@@ -74,7 +74,7 @@ function Upload() {
   ];
   return (
     <div className="s-up">
-      <div className="drop"><span className="ico"><Icon name="upload" size={22} /></span><b>Drop a file <em>or paste text</em></b><small>PDF, TXT, Markdown, DOCX · up to 20 MB</small></div>
+      <div className="drop"><span className="ico"><Icon name="upload" size={22} /></span><b>Drop a file <em>or paste text</em></b><small>PDF, TXT, Markdown, DOCX · up to 25 MB</small></div>
       {files.map((f, n) => (
         <div key={f.name} className="file" style={{ animationDelay: `${n * 0.18}s` }}>
           <span className={`ext ${f.cls}`}>{f.ext}</span>

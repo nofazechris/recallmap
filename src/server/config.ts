@@ -15,7 +15,7 @@ const schema = z.object({
   S3_ACCESS_KEY_ID: z.string().optional(),
   S3_SECRET_ACCESS_KEY: z.string().optional(),
   LOCAL_STORAGE_DIR: z.string().default('.data/uploads'),
-  MAX_UPLOAD_MB: z.coerce.number().default(15),
+  MAX_UPLOAD_MB: z.coerce.number().default(25),
 
   // AI
   AI_PROVIDER: z.enum(['anthropic', 'openai', 'openai-compatible']).optional(),

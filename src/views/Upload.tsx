@@ -12,7 +12,7 @@ type State = 'uploading' | 'extracting' | 'done' | 'error';
 type Item = { id: number; name: string; ext: string; state: State; progress: number; note?: string; resourceId?: string };
 type Tab = 'file' | 'text';
 
-const MAX_MB = 15;
+const MAX_MB = 25;
 const MAX = MAX_MB * 1024 * 1024;
 const allowed: Record<string, string> = { pdf: 'PDF', txt: 'TXT', md: 'MD', markdown: 'MD', docx: 'DOCX' };
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
