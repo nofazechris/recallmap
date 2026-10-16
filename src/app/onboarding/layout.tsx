@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import ToAuth from '../../components/ToAuth';
 import { loadSnapshot } from '../../server/session';
 import { StoreProvider, type ServerSnapshot } from '../../store/store';
+import type { Metadata } from 'next';
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 export const dynamic = 'force-dynamic';
 

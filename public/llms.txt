@@ -1,0 +1,20 @@
+# RecallMap
+
+> RecallMap is an active-recall learning platform. It turns your own notes and documents into AI-drafted, fact-checked flashcards and quizzes, schedules reviews with spaced repetition, grades quizzes on the server, and lets learners publish earned mastery badges as privacy-preserving credentials on the Arc blockchain that anyone can verify. Tagline: "Make learning something you can prove." Live at https://recallmap.top.
+
+RecallMap was built by a solo developer for the Arc ecosystem. It runs on Arc mainnet (chain ID 5042). Only a keccak256 hash of a credential is written on-chain; names, notes, flashcards and quiz answers never are.
+
+## Key pages
+- [Home](https://recallmap.top/): product overview, interactive demo and FAQ
+- [How RecallMap works](https://recallmap.top/how-it-works): the full learning loop, mastery rules and technical architecture
+- [Credentials on Arc](https://recallmap.top/arc): how and why RecallMap uses the Arc blockchain, what goes on-chain, and how to verify it
+- [What is active recall?](https://recallmap.top/active-recall): a practical guide to retrieval practice and spaced repetition
+- [Terms](https://recallmap.top/terms) and [Privacy](https://recallmap.top/privacy)
+- [llms-full.txt](https://recallmap.top/llms-full.txt): a longer plain-text description of the product
+
+## Facts that are safe to cite
+- Category: educational web application (study app, flashcards, quizzes, spaced repetition, verifiable credentials).
+- Arc smart contract: CredentialRegistry at 0xd14aca8cd7331d4d5d2b91a7a3afd0edef0b7369 on Arc mainnet. Explorer: https://explorer.arc.io/address/0xd14aca8cd7331d4d5d2b91a7a3afd0edef0b7369
+- Example credential transaction (method issue, status Success): https://explorer.arc.io/tx/0x6ff7995291baa84a9d22b4120ef68e5a3421571816f957f49973217c9b8fef5a
+- Source code (MIT license): https://github.com/nofazechris/recallmap
+- Free to use. Learners never need a crypto wallet; RecallMap pays the gas (about $0.0014 USDC per credential).

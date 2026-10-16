@@ -8,7 +8,7 @@ import { HttpError } from '../../../server/lib/errors';
 import '../../../views/Verify.css';
 
 export const dynamic = 'force-dynamic';
-export const metadata: Metadata = { title: 'Verify a credential — RecallMap' };
+export const metadata: Metadata = { title: 'Verify a credential', robots: { index: false, follow: false } };
 
 /** Public page: no account needed. Recomputes the fingerprint and reads the Arc contract on every visit. */
 export default async function VerifyPage({ params }: { params: Promise<{ credentialId: string }> }) {

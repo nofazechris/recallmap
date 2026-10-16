@@ -284,11 +284,11 @@ export default function Landing() {
           </div>
           <nav aria-label="Product">
             <h4>Product</h4>
-            <ul><li><a href="#demo">Live demo</a></li><li><a href="#how">How it works</a></li><li><a href="#features">Features</a></li><li><a href="#community">Community</a></li></ul>
+            <ul><li><a href="#demo">Live demo</a></li><li><Link to="/how-it-works">How it works</Link></li><li><a href="#features">Features</a></li><li><a href="#community">Community</a></li><li><Link to="/active-recall">What is active recall?</Link></li></ul>
           </nav>
           <nav aria-label="Trust">
             <h4>Trust</h4>
-            <ul><li><a href="#verify">Verification</a></li><li><a href="#faq">FAQ</a></li><li><Link to="/privacy">Privacy</Link></li><li><Link to="/terms">Terms</Link></li></ul>
+            <ul><li><a href="#verify">Verification</a></li><li><Link to="/arc">Credentials on Arc</Link></li><li><a href="#faq">FAQ</a></li><li><Link to="/privacy">Privacy</Link></li><li><Link to="/terms">Terms</Link></li></ul>
           </nav>
           <nav aria-label="Get started">
             <h4>Get started</h4>

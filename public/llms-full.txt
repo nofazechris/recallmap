@@ -1,0 +1,35 @@
+# RecallMap: full description
+
+RecallMap (https://recallmap.top) is a web app for learning that lasts and can be proven. Tagline: "Make learning something you can prove."
+
+## The problem
+Most studying is passive (rereading, highlighting, rewatching). It feels productive but is quickly forgotten, and once someone has learned something they have no trustworthy way to show it. Certificates and self-reported skills are only claims.
+
+## What RecallMap does
+1. Add material. Learners upload a PDF, TXT, Markdown or DOCX file (up to 25 MB, text-based documents only) or paste text. Files upload directly to private storage with short-lived signed URLs and the server extracts the text.
+2. AI study kit. An AI drafts flashcards and multiple-choice or true/false quiz questions from the learner's own text. Each item must cite its source passage and quote evidence that appears verbatim in it.
+3. Double-checked. A second, blind AI pass fact-checks every item against the source and removes failures. Nothing is saved until the learner reviews, edits and approves it. Single cards can be regenerated.
+4. Answer-first study. The learner types an answer before the card flips (retrieval practice), then rates it Again, Hard, Good or Easy. An SM-2-style spaced-repetition scheduler decides when each card returns. Daily reminders arrive at 9am local time when cards are due.
+5. Server-graded quizzes. Answer keys never reach the browser. Results include explanations.
+6. Concept map. Topics become a map of concepts marked strong, due, learning or unexplored.
+7. Honest badges. "Recall Ready" requires two separate quiz attempts at 80% or higher; "Topic Master" requires 90% or higher. Quizzes need at least 3 questions and the two attempts must be at least 30 minutes apart, so cramming cannot fake mastery. XP is recorded in an idempotent ledger with daily caps and all rules live in the database.
+8. Community. Study circles with invite links, challenges, follows, a feed and public profiles. Everything is private by default.
+
+## How it uses the Arc blockchain
+When a learner earns a mastery badge they can publish it as a credential on Arc mainnet (chain ID 5042). Arc is an EVM-compatible Layer-1 built by Circle that uses USDC as its gas token and confirms transactions in under a second.
+- A Solidity contract, CredentialRegistry, has an owner and authorised issuers and exposes issue, revoke, get, verify and setIssuer.
+- The credential payload (badge, holder, date, optional topic name and a random nonce) is canonicalised with sorted keys and hashed with keccak256. Only the hash, an id, the issuer address and a timestamp go on-chain.
+- Issuing is a two-step job: submit the transaction, then confirm. A credential is marked "verified" only after the receipt succeeds and the stored on-chain hash matches RecallMap's own.
+- Each credential has a public verification page that re-reads the contract on every visit and runs four checks: data matches its fingerprint; recorded on Arc; on-chain fingerprint matches; issued by the authorised issuer and not revoked.
+- Why Arc: fees are paid in USDC and cost a fraction of a cent (about $0.0014 per credential in practice), confirmation is near-instant (the explorer showed "confirmed within <= 0.51 secs"), it is EVM-compatible so standard tools work, verification is public and independent of RecallMap, and learners need no wallet.
+- Contract: 0xd14aca8cd7331d4d5d2b91a7a3afd0edef0b7369 (https://explorer.arc.io/address/0xd14aca8cd7331d4d5d2b91a7a3afd0edef0b7369)
+- Example transaction: https://explorer.arc.io/tx/0x6ff7995291baa84a9d22b4120ef68e5a3421571816f957f49973217c9b8fef5a
+
+## Technology
+Next.js 16 (App Router), React 19, TypeScript; Neon serverless Postgres with Drizzle ORM; Auth.js (email and password, bcrypt, database-backed rate limits); Cloudflare R2 storage; OpenAI models for generation and verification; Resend for email; viem for chain access; Solidity compiled with solc; a durable jobs table with retries for document processing, AI generation and credential confirmation; nonce-based Content-Security-Policy; 89 automated tests including the contract on a real in-process EVM. Open source under the MIT license: https://github.com/nofazechris/recallmap
+
+## Principles
+Honest over impressive (no simulated features, no badge for showing up); private by default; the server owns the truth (grading, XP and badges are computed server-side).
+
+## Links
+Home https://recallmap.top/ | How it works https://recallmap.top/how-it-works | Arc credentials https://recallmap.top/arc | Active recall guide https://recallmap.top/active-recall
