@@ -4,6 +4,7 @@ import { z } from 'zod';
 import type { Db, DbOrTx } from '../db';
 import { emailVerifications, users } from '../db/schema';
 import { appUrl, emailConfigured, sendEmail } from '../lib/email';
+import { verifyEmail } from '../lib/email-templates';
 import { badRequest, forbidden } from '../lib/errors';
 import { log } from '../lib/log';
 import { rateLimit } from '../lib/rate-limit';
@@ -25,10 +26,8 @@ export async function sendVerification(db: Db, userId: string): Promise<{ sent: 
   const token = randomBytes(32).toString('base64url');
   await db.insert(emailVerifications).values({ userId, tokenHash: sha(token), expiresAt: new Date(Date.now() + TTL_MS) });
   try {
-    await sendEmail({
-      to: u.email, subject: 'Confirm your RecallMap email',
-      text: `Welcome to RecallMap! Confirm your email address with this link (valid for 24 hours):\n\n${appUrl()}/auth/verify?token=${token}\n\nIf you didn’t create an account, you can ignore this email.`,
-    });
+    const { firstNameOf } = await import('./users'); // users.ts imports this module, so load it lazily
+    await sendEmail({ to: u.email, ...verifyEmail({ link: `${appUrl()}/auth/verify?token=${token}`, name: await firstNameOf(db, userId) }) });
   } catch (e) {
     log.error('verification_email_failed', { message: e instanceof Error ? e.message : String(e) });
     throw badRequest('We couldn’t send the email just now. Please try again in a minute.', 'email_failed');

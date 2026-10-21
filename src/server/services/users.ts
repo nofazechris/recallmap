@@ -54,6 +54,12 @@ export async function registerUser(db: Db, raw: z.infer<typeof registerInput>) {
   });
 }
 
+/** First word of the learner's display name, for greeting them in emails. */
+export async function firstNameOf(db: DbOrTx, userId: string): Promise<string | null> {
+  const [p] = await db.select({ n: profiles.displayName }).from(profiles).where(eq(profiles.userId, userId)).limit(1);
+  return p?.n?.trim().split(/\s+/)[0] || null;
+}
+
 export const escapeHtml = (v: string) => v.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
 export const profilePatch = z.object({

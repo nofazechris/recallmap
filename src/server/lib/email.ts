@@ -1,6 +1,6 @@
 import { env } from '../config';
 
-export interface Mail { to: string; subject: string; text: string }
+export interface Mail { to: string; subject: string; text: string; html?: string }
 type Mailer = (m: Mail) => Promise<void>;
 
 let override: Mailer | null = null;
@@ -15,7 +15,7 @@ export async function sendEmail(m: Mail): Promise<void> {
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'content-type': 'application/json' },
-    body: JSON.stringify({ from: process.env.EMAIL_FROM, to: m.to, subject: m.subject, text: m.text }),
+    body: JSON.stringify({ from: process.env.EMAIL_FROM, to: m.to, subject: m.subject, text: m.text, ...(m.html ? { html: m.html } : {}) }),
     signal: AbortSignal.timeout(15_000),
   });
   if (!res.ok) throw new Error(`Email provider returned ${res.status}`);

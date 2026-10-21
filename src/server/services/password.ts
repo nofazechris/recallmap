@@ -7,6 +7,8 @@ import type { Db } from '../db';
 import { passwordResets, users } from '../db/schema';
 import { HttpError, badRequest } from '../lib/errors';
 import { appUrl, emailConfigured, sendEmail } from '../lib/email';
+import { resetEmail } from '../lib/email-templates';
+import { firstNameOf } from './users';
 import { log } from '../lib/log';
 import { rateLimit } from '../lib/rate-limit';
 
@@ -34,7 +36,7 @@ export async function requestReset(db: Db, ip: string, input: z.infer<typeof for
   const link = `${appUrl()}/auth/reset?token=${token}`;
 
   if (emailConfigured()) {
-    try { await sendEmail({ to: u.email, subject: 'Reset your RecallMap password', text: `Use this link within an hour to choose a new password:\n\n${link}\n\nIf you didn’t ask for this, you can ignore this email.` }); }
+    try { await sendEmail({ to: u.email, ...resetEmail({ link, name: await firstNameOf(db, u.id) }) }); }
     catch (e) { log.error('reset_email_failed', { message: e instanceof Error ? e.message : String(e) }); throw new HttpError(502, 'email_failed', 'We couldn’t send the email. Please try again shortly.'); }
     return {};
   }

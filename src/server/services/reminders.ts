@@ -2,12 +2,13 @@ import { and, eq, gte, sql } from 'drizzle-orm';
 import type { Db } from '../db';
 import { notifications, topics } from '../db/schema';
 import { appUrl, emailConfigured, sendEmail } from '../lib/email';
+import { reminderEmail } from '../lib/email-templates';
 import { dayKey, startOfDay } from '../lib/days';
 import { log } from '../lib/log';
 import { studyDays } from './activity';
 import { notify } from './notifications';
 import { dueCounts } from './study';
-import { escapeHtml } from './users';
+import { escapeHtml, firstNameOf } from './users';
 
 export const REMINDER_HOUR = 9;
 
@@ -41,7 +42,8 @@ export async function sendDueReminders(db: Db, now = new Date(), limit = 200): P
 
       await notify(db, c.id, 'due', `<strong>${total} ${total === 1 ? 'card is' : 'cards are'} due</strong> for review — start with ${escapeHtml(t?.title ?? 'your topics')}.`, `/study/${topId}`);
       if (emailConfigured() && c.verified) {
-        await sendEmail({ to: c.email, subject: `${total} ${total === 1 ? 'card is' : 'cards are'} due for review`, text: `You have ${total} ${total === 1 ? 'card' : 'cards'} due. A few minutes keeps them fresh:\n\n${appUrl()}/study/${topId}\n\nTurn these reminders off any time in Settings → Notifications.` }).catch(() => undefined);
+        const mail = reminderEmail({ count: total, topic: t?.title, link: `${appUrl()}/study/${topId}`, name: await firstNameOf(db, c.id) });
+        await sendEmail({ to: c.email, ...mail }).catch(() => undefined);
       }
       sent++;
     } catch (e) {
